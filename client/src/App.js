@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useContext, useState, useEffect} from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
+// import './App.css';
+import NavBar from './components/NavBar'
+import Login from './components/Login'
+import About from './components/About'
+import PetStore from './components/pet_daycare/PetStore'
+import PetItem from './components/pet/PetItem'
+import Location from './components/location/Location'
+import PetStoreOverview from './components/pet_daycare/PetStoreOverview'
+// import Geocode from "react-geocode";
+import { VisibileUserName } from './components/context/VisibleUsername'
+import styled from "styled-components";
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <NavBar />
+      <Routes>
+      <Route path="/about"
+          element={ <About/> }
+      />
+      <Route
+        path="/petstores"
+          element={<PetStore/>}
+      />
+      <Route
+        path="/petitems"
+          element={<PetItem/>}
+      />
+      </Routes>
+      </>
   );
+ 
 }
 
 export default App;
