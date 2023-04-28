@@ -15,6 +15,8 @@ function App() {
   return (
     <>
       <NavBar />
+      <h1 className="bg-blue-500">Hello world!</h1>
+      bg-blue-500
       <Routes>
         <Route path="/about" element={<About />} />
         <Route path="/petstores" element={<PetStore />} />
