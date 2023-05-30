@@ -7,7 +7,7 @@ class LocationsController < ApplicationController
 
     def update
         # byebug
-        location = Party.find_by(id: params[:party_id]).location
+        location = PetStore.find_by(id: params[:party_id]).location
         if location.user_id == @current_user.id 
             # location.update(location_params)
             location.update(name: params[:name])
@@ -65,7 +65,7 @@ class LocationsController < ApplicationController
     private 
 
     def location_params
-        params.permit(:name, :party_id, :user_id, :locationId, :location)
+        params.permit(:name, :pet_store_id, :user_id, :locationId, :location)
     end
 
 end
