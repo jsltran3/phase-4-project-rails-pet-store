@@ -149,8 +149,9 @@ function PetStoreOverview({ stores, onFetchPetStoreOverviewStores }) {
 
   return (
     <div>
-      <h1>Map</h1>
-      <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_API_KEY}>
+      <h2>Map</h2>
+      {/* <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_API_KEY}> */}
+      <LoadScript googleMapsApiKey="AIzaSyC-3z83rUV3Wvl2ZRPKUG1MlC5xUhqRPHs">
         <div className="GoogleMapDiv">
           <GoogleMap
             mapContainerStyle={containerStyle}
@@ -175,7 +176,7 @@ function PetStoreOverview({ stores, onFetchPetStoreOverviewStores }) {
           </GoogleMap>
         </div>
       </LoadScript>
-      <h1>Pet Store Overview</h1>
+      <h2>Pet Store Overview</h2>
       <div className="PetStoreOverviewPageListDiv">{storeResults}</div>
     </div>
   );

@@ -11,6 +11,7 @@
     "heroku-postbuild": "npm run clean && npm run build && npm run deploy"
   },
   "dependencies": {
+    "@react-google-maps/api": "^2.18.1",
     "env-cmd": "^10.1.0",
     "react-geocode": "^0.2.3",
     "react-router-dom": "^6.9.0",

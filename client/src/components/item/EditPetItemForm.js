@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ChooseStoreDropdown from "../store/ChoosePetStoreDropDown";
+import ChoosePetStoreDropdown from "../store/ChoosePetStoreDropDown";
 import swal from "sweetalert";
 
 function EditPetItemForm({
@@ -85,7 +85,7 @@ function EditPetItemForm({
 
   return (
     <div>
-      <ChooseStoreDropdown stores={stores} onChooseStore={onChooseStore} />
+      <ChoosePetStoreDropdown stores={stores} onChooseStore={onChooseStore} />
       <h2>Edit Item</h2>
       <form>
         <label htmlFor="item_select">Choose an Item:</label>

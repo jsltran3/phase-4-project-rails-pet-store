@@ -44,12 +44,7 @@ function AddPetStoreForm({ onAddStore }) {
           id="name"
           name="name"
         />
-        <br />
-        <br />
 
-        <br />
-        <br />
-        <br />
         <input type="submit" />
       </form>
     </div>

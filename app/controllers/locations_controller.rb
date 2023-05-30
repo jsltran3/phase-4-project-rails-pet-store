@@ -1,13 +1,13 @@
 class LocationsController < ApplicationController
     def create 
-        location = Location.create(user_id: @current_user.id, party_id: params[:party_id], name: params[:name])
+        location = Location.create(user_id: @current_user.id, pet_store_id: params[:pet_store_id], name: params[:name])
       
         render json: location, status: :created
     end
 
     def update
         # byebug
-        location = PetStore.find_by(id: params[:party_id]).location
+        location = PetStore.find_by(id: params[:pet_store_id]).location
         if location.user_id == @current_user.id 
             # location.update(location_params)
             location.update(name: params[:name])
@@ -21,7 +21,7 @@ class LocationsController < ApplicationController
         #     # Figure out why the location isn't being updated accordingly:
         #     # byebug
         #     # location.update(location_params)
-        #     location.update(user_id: @current_user.id, party_id: params[:party_id], name: params[:name])
+        #     location.update(user_id: @current_user.id, pet_store_id: params[:pet_store_id], name: params[:name])
         #     render json: location
         # else
         #     render json: { errors: [location.errors.full_messages] }, status: :unprocessable_entity
@@ -52,7 +52,7 @@ class LocationsController < ApplicationController
 
     def destroy
         # byebug
-        # location = Party.find_by(id: params[:party_id]).location
+        # location = Store.find_by(id: params[:pet_store_id]).location
         location = Location.find_by(id: params[:locationId])
         if location.user_id == @current_user.id 
             location.destroy

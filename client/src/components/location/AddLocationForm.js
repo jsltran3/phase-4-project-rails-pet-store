@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ChooseStoreDropdown from "../store/ChoosePetStoreDropDown";
+import ChoosePetStoreDropdown from "../store/ChoosePetStoreDropDown";
 import swal from "sweetalert";
 
 function AddLocationForm({
@@ -28,7 +28,7 @@ function AddLocationForm({
       "id in handleCreate function in AddLocationForm child component: ",
       id
     );
-    fetch(`/stores/${id}/location`, {
+    fetch(`/pet_stores/${id}/location`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -48,7 +48,7 @@ function AddLocationForm({
 
   return (
     <div>
-      <ChooseStoreDropdown stores={stores} onChooseStore={onChooseStore} />
+      <ChoosePetStoreDropdown stores={stores} onChooseStore={onChooseStore} />
       <h2>Add Location</h2>
       <form>
         <label htmlFor="name">Name of Location:</label>

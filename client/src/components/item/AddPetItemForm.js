@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ChooseStoreDropdown from "../store/ChoosePetStoreDropDown";
+import ChoosePetStoreDropdown from "../store/ChoosePetStoreDropDown";
 
 function AddPetItemForm({ onAddItem, stores, onChooseStore, chosenStore }) {
   const [createItemFormData, setCreateItemFormData] = useState({
@@ -35,7 +35,7 @@ function AddPetItemForm({ onAddItem, stores, onChooseStore, chosenStore }) {
 
   return (
     <div>
-      <ChooseStoreDropdown stores={stores} onChooseStore={onChooseStore} />
+      <ChoosePetStoreDropdown stores={stores} onChooseStore={onChooseStore} />
       <h2>Add New Item</h2>
       <form>
         <label htmlFor="name">Name of Item:</label>

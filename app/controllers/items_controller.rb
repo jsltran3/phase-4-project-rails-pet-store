@@ -45,6 +45,9 @@ class ItemsController < ApplicationController
     private 
 
     def item_params
-        params.permit(:name, :party_id)
+        params.permit(:name, :pet_store_id)
     end
 end
+
+
+

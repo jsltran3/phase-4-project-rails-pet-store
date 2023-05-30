@@ -28,21 +28,21 @@ function PetStore({
   const [showAdd, setShowAdd] = useState(false);
   const [showEdit, setShowEdit] = useState(false);
 
-  function toggleAddstores() {
+  function toggleAddStores() {
     setShowAdd(!showAdd);
   }
 
-  function toggleEditstores() {
+  function toggleEditStores() {
     setShowEdit(!showEdit);
   }
 
   return (
     <div>
       <h1>Stores</h1>
-      <button onClick={toggleAddstores}>Add stores</button>
+      <button onClick={toggleAddStores}>Add stores</button>
       <br />
       <br />
-      <button onClick={toggleEditstores}>Edit stores</button>
+      <button onClick={toggleEditStores}>Edit stores</button>
       <br />
       {showAdd && <AddPetStoreForm onAddStore={onAddStore} />}
       {showAdd && showEdit && <hr />}
