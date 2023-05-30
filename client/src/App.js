@@ -6,6 +6,8 @@ import Login from "./components/Login";
 import About from "./components/About";
 import PetStore from "./components/pet_daycare/PetStore";
 import PetItem from "./components/pet/PetItem";
+import Geocode from "react-geocode";
+
 import Location from "./components/location/Location";
 import PetStoreOverview from "./components/pet_daycare/PetStoreOverview";
 import AppBar from "@mui/material/AppBar";
@@ -26,6 +28,8 @@ import AdbIcon from "@mui/icons-material/Adb";
 // import { VisibileUserName } from "./components/context/VisibleUsername";
 
 function App() {
+  const [user, setUser] = useState(null);
+
   return (
     <>
       <NavBar />
@@ -35,8 +39,8 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/petstores" element={<PetStore />} />
         <Route path="/petitems" element={<PetItem />} />
+        <Route path="/location" element={<PetItem />} />
       </Routes>
-      <Button variant="contained">Hello World</Button>
     </>
   );
 }
