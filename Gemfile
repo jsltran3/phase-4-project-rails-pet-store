@@ -52,4 +52,3 @@ gem "active_model_serializers", "~> 0.10.12"
 
 #protect api key?
 gem 'dotenv-rails', groups: [:development, :test]
-gem 'gem-that-requires-env-variables'

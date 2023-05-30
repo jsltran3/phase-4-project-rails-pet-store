@@ -31,7 +31,7 @@ function EditPetStoreForm({
 
     const id = chosenStore.id;
 
-    fetch(`/stores/${id}`, {
+    fetch(`/pet_stores/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -59,7 +59,7 @@ function EditPetStoreForm({
     e.preventDefault();
     const id = chosenStore.id;
 
-    fetch(`/stores/${id}`, {
+    fetch(`/pet_stores/${id}`, {
       method: "DELETE",
     }).then((response) => {
       if (response.ok) {

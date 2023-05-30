@@ -1,6 +1,8 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { UserContext } from "./components/context/UserContext";
+import { HelloProvider } from "./components/context/HelloContext";
+
 // import './App.css';
 import NavBar from "./components/NavBar";
 import Login from "./components/Login";
@@ -37,6 +39,7 @@ function App() {
   const [location, setLocation] = useState([]);
   const [locationId, setLocationId] = useState("");
   const { setUserInfo } = useContext(UserContext);
+  // const UserContext = createContext();
 
   useEffect(() => {
     // auto-login
@@ -44,6 +47,8 @@ function App() {
       if (r.ok) {
         r.json().then((user) => {
           setUser(user);
+          // setUserInfo(user);
+          // setUser(user);
         });
       }
     });
@@ -255,11 +260,16 @@ function App() {
       <NavBar user={user} setUser={setUser} />
       <Routes>
         <Route
-          path="/about"
+          path="/"
           // NOTE: Adding 'useContext' here as per project's requirement:
           // Taken from this example:
           // https://www.w3schools.com/react/react_usecontext.asp
-          element={<About user={user} />}
+          element={
+            <HelloProvider>
+              <About user={user} />
+            </HelloProvider>
+            // <About />
+          }
         />
         <Route
           path="/pet_stores"
@@ -315,7 +325,7 @@ function App() {
           element={
             <PetStoreOverview
               stores={stores}
-              onFetchPetStoreOverviewstores={handleFetchOverviewStores}
+              onFetchPetStoreOverviewStores={handleFetchOverviewStores}
             />
           }
         />

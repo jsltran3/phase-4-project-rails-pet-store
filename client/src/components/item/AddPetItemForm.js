@@ -16,7 +16,7 @@ function AddPetItemForm({ onAddItem, stores, onChooseStore, chosenStore }) {
   const handleCreate = (e) => {
     e.preventDefault();
     const id = chosenStore.id;
-    fetch(`/stores/${id}/items`, {
+    fetch(`/pet_stores/${id}/items`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -51,7 +51,7 @@ import Geocode from "react-geocode";
 // https://developers.google.com/maps/documentation/javascript/geocoding
 // https://developers.google.com/maps/documentation/geocoding/overview
 
-function PetStoreOverview({ stores, onFetchPetStoreOverviewstores }) {
+function PetStoreOverview({ stores, onFetchPetStoreOverviewStores }) {
   // ------------------------------------GOOGLE MAPS EXAMPLE------------------------------------
   const containerStyle = {
     width: "400px",
@@ -90,7 +90,7 @@ function PetStoreOverview({ stores, onFetchPetStoreOverviewstores }) {
     })
       .then((response) => response.json())
       .then((data) => {
-        onFetchPetStoreOverviewstores(data);
+        onFetchPetStoreOverviewStores(data);
       });
   }, []);
 

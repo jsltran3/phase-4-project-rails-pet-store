@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
+import { HelloContext } from "./context/HelloContext";
 
-function About() {
+function About({ user }) {
+  const value = useContext(HelloContext);
+
   return (
     <div>
       <h2>About Page</h2>
+      <h3>
+        {value}, {user.username}!
+      </h3>
+
       <p>
         This app is a Full Stack web application made with React and Ruby On
         Rails that allows users to create pet stores and add pet items to the

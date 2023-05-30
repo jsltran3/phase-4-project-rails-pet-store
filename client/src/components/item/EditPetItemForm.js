@@ -51,7 +51,7 @@ function EditPetItemForm({
 
     const StoreId = chosenStore.id;
 
-    fetch(`/stores/${StoreId}/items/${itemId}`, {
+    fetch(`/pet_stores/${StoreId}/items/${itemId}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
