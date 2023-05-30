@@ -34,5 +34,17 @@ class ItemsController < ApplicationController
         end
     end
 
+    def destroy
+        item = @current_user.items.find_by(id: params[:id])
+        if item.user_id == @current_user.id
+            item.destroy
+            head :no_content
+        end
+    end
 
+    private 
+
+    def item_params
+        params.permit(:name, :party_id)
+    end
 end
