@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import ChooseStoreDropdown from "../store/ChoosePetStoreDropDown";
 import swal from "sweetalert";
 
-function EditItemForm({
+function EditPetItemForm({
   itemOptions,
   setItemOptions,
   itemId,
@@ -118,4 +118,4 @@ function EditItemForm({
   );
 }
 
-export default EditItemForm;
+export default EditPetItemForm;
