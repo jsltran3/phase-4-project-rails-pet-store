@@ -29,3 +29,6 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# Adding 'dotenv' to ignore '.env' file for later use for API keys:
+.env

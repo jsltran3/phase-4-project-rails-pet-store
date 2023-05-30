@@ -71,71 +71,6 @@ function App() {
     setStores(fetchedStores);
   }
 
-  // NOTE: This function is necessary to obtain the 'lat' (latitude) and 'lng' (longitude) to later display the proper
-  // marker positions for the map on the 'Summary' page:
-  async function get_coordinates(name) {
-    Geocode.setApiKey(process.env.REACT_APP_GOOGLE_API_KEY);
-    Geocode.setLanguage("en");
-    Geocode.setLocationType("ROOFTOP");
-    return await Geocode.fromAddress(name)
-      .then(
-        (response) => {
-          const { lat, lng } = response.results[0].geometry.location;
-          let position = { lat: lat, lng: lng };
-          // Related Stackoverflow post:
-          // https://stackoverflow.com/questions/38884522/why-is-my-asynchronous-function-returning-promise-pending-instead-of-a-val
-          return position;
-        },
-        (error) => {
-          console.error(error);
-        }
-      )
-      .then((response) => {
-        return response;
-      });
-  }
-
-  async function handleFetchOverviewStores(fetchedStores) {
-    // Loop through each store and check to see if it has a location
-    // If it has a location, then run the 'get_coordinates' function to its actual 'lat' and 'lng' values accordingly so that we can
-    // later use them for the map on the summary page:
-    const promises = fetchedStores.map(async (store) => {
-      if (store.location) {
-        let position = await get_coordinates(store.location.name);
-
-        return {
-          ...store,
-          location: { ...store.location, position: position },
-        };
-      } else {
-        return store;
-      }
-    });
-
-    const modifiedStores = await Promise.all(promises);
-
-    setStores(modifiedStores);
-  }
-
-  function handleAddStore(newStore) {
-    const updatedStoresArray = [...stores, newStore];
-    setStores(updatedStoresArray);
-  }
-
-  function handleEditStore(editedStore) {
-    setStores((stores) =>
-      stores.map((store) => {
-        return store.id === editedStore.id ? editedStore : store;
-      })
-    );
-  }
-
-  function handleDeleteStore(deletedStore) {
-    setStores((stores) =>
-      stores.filter((store) => store.id !== deletedStore.id)
-    );
-  }
-
   function handleChooseStore(e) {
     const match = stores.find((item) => item.name == e.target.value);
 
@@ -156,6 +91,24 @@ function App() {
     } else {
       setLocation("");
     }
+  }
+  function handleAddStore(newStore) {
+    const updatedStoresArray = [...stores, newStore];
+    setStores(updatedStoresArray);
+  }
+
+  function handleEditStore(editedStore) {
+    setStores((stores) =>
+      stores.map((store) => {
+        return store.id === editedStore.id ? editedStore : store;
+      })
+    );
+  }
+
+  function handleDeleteStore(deletedStore) {
+    setStores((stores) =>
+      stores.filter((store) => store.id !== deletedStore.id)
+    );
   }
 
   function handleAddItem(newItem) {
@@ -246,6 +199,50 @@ function App() {
     setLocation("");
   }
 
+  // NOTE: This function is necessary to obtain the 'lat' (latitude) and 'lng' (longitude) to later display the proper
+  // marker positions for the map on the 'Summary' page:
+  async function get_coordinates(name) {
+    Geocode.setApiKey(process.env.REACT_APP_GOOGLE_API_KEY);
+    Geocode.setLanguage("en");
+    Geocode.setLocationType("ROOFTOP");
+    return await Geocode.fromAddress(name)
+      .then(
+        (response) => {
+          const { lat, lng } = response.results[0].geometry.location;
+          let position = { lat: lat, lng: lng };
+          // Related Stackoverflow post:
+          // https://stackoverflow.com/questions/38884522/why-is-my-asynchronous-function-returning-promise-pending-instead-of-a-val
+          return position;
+        },
+        (error) => {
+          console.error(error);
+        }
+      )
+      .then((response) => {
+        return response;
+      });
+
+    async function handleFetchSummaryStores(fetchedStores) {
+      // Loop through each store and check to see if it has a location
+      // If it has a location, then run the 'get_coordinates' function to its actual 'lat' and 'lng' values accordingly so that we can
+      // later use them for the map on the summary page:
+      const promises = fetchedStores.map(async (store) => {
+        if (store.location) {
+          let position = await get_coordinates(store.location.name);
+
+          return {
+            ...store,
+            location: { ...store.location, position: position },
+          };
+        } else {
+          return store;
+        }
+      });
+
+      const modifiedStores = await Promise.all(promises);
+      setStores(modifiedStores);
+    }
+  }
   // Two resources used for 'Navigate' for '/' route for '/about' component:
   // https://www.pluralsight.com/guides/how-to-set-react-router-default-route-redirect-to-home
   // https://stackoverflow.com/questions/63690695/react-redirect-is-not-exported-from-react-router-dom
@@ -255,7 +252,7 @@ function App() {
       <NavBar user={user} setUser={setUser} />
       <Routes>
         <Route
-          path="/about"
+          path="/"
           // NOTE: Adding 'useContext' here as per project's requirement:
           // Taken from this example:
           // https://www.w3schools.com/react/react_usecontext.asp
@@ -315,7 +312,7 @@ function App() {
           element={
             <PetStoreOverview
               stores={stores}
-              onFetchPetStoreOverviewstores={handleFetchOverviewStores}
+              onFetchSummaryStores={handleFetchSummaryStores}
             />
           }
         />
@@ -323,5 +320,17 @@ function App() {
     </div>
   );
 }
+const Logo = styled.h1`
+  font-family: "Permanent Marker", regular;
+  font-size: 2rem;
+  color: Yellow;
+  margin: -1;
+  line-height: 1;
+  -webkit-text-stroke: 2px black;
 
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+`;
 export default App;

@@ -4,7 +4,7 @@ import EditLocationForm from "./EditLocationForm";
 
 function Location({
   stores,
-  onFetchstores,
+  onFetchStores,
   onAddLocation,
   onEditLocation,
   onDeleteLocation,
@@ -15,7 +15,7 @@ function Location({
 }) {
   console.log("stores within Location child component: ", stores);
   useEffect(() => {
-    fetch("/stores", {
+    fetch("/pet_stores", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -24,7 +24,7 @@ function Location({
     })
       .then((response) => response.json())
       .then((data) => {
-        onFetchstores(data);
+        onFetchStores(data);
       });
   }, []);
 

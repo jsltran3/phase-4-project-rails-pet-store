@@ -14,10 +14,10 @@ function PetItem({
   stores,
   onChooseStore,
   chosenStore,
-  onFetchstores,
+  onFetchStores,
 }) {
   useEffect(() => {
-    fetch("/stores", {
+    fetch("/pet_stores", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -26,7 +26,7 @@ function PetItem({
     })
       .then((response) => response.json())
       .then((data) => {
-        onFetchstores(data);
+        onFetchStores(data);
       });
   }, []);
 
