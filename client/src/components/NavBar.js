@@ -14,10 +14,10 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import PetsIcon from "@mui/icons-material/Pets";
 
-const pages = ["about", "pet_stores", "items", "Location", "Overview"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+const pages = ["about", "Pet_Stores", "Items", "Location", "Overview"];
+const settings = ["Logout"];
 
-function ResponsiveAppBar() {
+function NavBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -172,4 +172,4 @@ function ResponsiveAppBar() {
     </AppBar>
   );
 }
-export default ResponsiveAppBar;
+export default NavBar;

@@ -1,6 +1,6 @@
 import React from "react";
 
-function ChoosePetStoreDropDown({ stores, onChoosestore }) {
+function ChoosePetStoreDropDown({ stores, onChooseStore }) {
   let storeOptionsArray = stores.map((store) => {
     return (
       <option key={store.id} value={store.name}>
@@ -15,7 +15,7 @@ function ChoosePetStoreDropDown({ stores, onChoosestore }) {
       <form>
         <label htmlFor="choose_store">Choose a store:</label>
         <br />
-        <select name="choose_store" id="choose_store" onChange={onChoosestore}>
+        <select name="choose_store" id="choose_store" onChange={onChooseStore}>
           <option disabled selected value>
             {" "}
             -- Select a store --{" "}

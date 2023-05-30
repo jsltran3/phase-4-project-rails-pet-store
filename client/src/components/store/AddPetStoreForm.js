@@ -15,7 +15,7 @@ function AddPetStoreForm({ onAddStore }) {
 
   const handleCreateStoreFormSubmit = (e) => {
     e.preventDefault();
-    fetch("/stores", {
+    fetch("/pet_stores", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -45,17 +45,10 @@ function AddPetStoreForm({ onAddStore }) {
           name="name"
         />
         <br />
-        <label htmlFor="start_time">Start Time of Store:</label>
         <br />
-        <input
-          onChange={handleCreateStoreChange}
-          type="text"
-          id="start_time"
-          name="start_time"
-        />
+
         <br />
         <br />
-        <input onChange={handleCreateStoreChange} type="text" />
         <br />
         <input type="submit" />
       </form>

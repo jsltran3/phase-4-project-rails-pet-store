@@ -81,7 +81,7 @@ function PetStoreOverview({ stores, onFetchPetStoreOverviewstores }) {
   // ------------------------------------GOOGLE MAPS EXAMPLE------------------------------------
 
   useEffect(() => {
-    fetch("/stores", {
+    fetch("/pet_stores", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

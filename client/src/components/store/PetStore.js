@@ -12,7 +12,7 @@ function PetStore({
   chosenStore,
 }) {
   useEffect(() => {
-    fetch("/stores", {
+    fetch("/pet_stores", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -38,7 +38,7 @@ function PetStore({
 
   return (
     <div>
-      <h1>stores</h1>
+      <h1>Stores</h1>
       <button onClick={toggleAddstores}>Add stores</button>
       <br />
       <br />
