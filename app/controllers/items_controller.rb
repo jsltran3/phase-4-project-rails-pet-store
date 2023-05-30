@@ -15,4 +15,24 @@ class ItemsController < ApplicationController
         end
     end
 
+    def index 
+        items = @current_user.items.all
+
+        if session[:user_id]
+            render json: items
+        else
+            render json: { errors: ["Not authorized"] }, status: :unauthorized
+        end
+    end
+
+    def show
+        item = @current_user.items.find_by(id: params[:id])
+        if item 
+            render json: item
+        else
+            render json: { error: "Item not found" }
+        end
+    end
+
+
 end
