@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # namespace :api do
-  resources :stores do 
+  resources :pet_stores do 
     resources :items
     # TODO:
     # Figure out why '/location' isn't working:

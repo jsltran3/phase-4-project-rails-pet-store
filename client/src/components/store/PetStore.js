@@ -4,7 +4,7 @@ import EditPetStoreForm from "./EditPetStoreForm";
 
 function PetStore({
   stores,
-  onFetchstores,
+  onFetchStores,
   onAddStore,
   onEditStore,
   onDeleteStore,
@@ -21,7 +21,7 @@ function PetStore({
     })
       .then((response) => response.json())
       .then((data) => {
-        onFetchstores(data);
+        onFetchStores(data);
       });
   }, []);
 

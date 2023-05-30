@@ -1,7 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-import { UserContext } from "./context/UserContext";
-
+import { UserContext } from "./components/context/UserContext";
 // import './App.css';
 import NavBar from "./components/NavBar";
 import Login from "./components/Login";
@@ -9,7 +8,6 @@ import About from "./components/About";
 import PetStore from "./components/store/PetStore";
 import PetItem from "./components/item/PetItem";
 import Geocode from "react-geocode";
-
 import Location from "./components/location/Location";
 import PetStoreOverview from "./components/store/PetStoreOverview";
 import AppBar from "@mui/material/AppBar";
@@ -24,9 +22,8 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
+import styled from "styled-components";
 
-// import Geocode from "react-geocode";
 // import { VisibileUserName } from "./components/context/VisibleUsername";
 
 function App() {
@@ -136,6 +133,7 @@ function App() {
         stores.filter((store) => store.id !== deletedStore.id)
       );
     }
+
     function handleChooseStore(e) {
       const match = stores.find((item) => item.name == e.target.value);
 
@@ -251,17 +249,94 @@ function App() {
   // https://stackoverflow.com/questions/63690695/react-redirect-is-not-exported-from-react-router-dom
 
   return (
-    <>
-      <NavBar />
+    <div className="App">
+      <Logo>boork</Logo>
 
+      <NavBar user={user} setUser={setUser} />
       <Routes>
-        <Route path="/about" element={<About />} />
-        <Route path="/petstores" element={<PetStore />} />
-        <Route path="/petitems" element={<PetItem />} />
-        <Route path="/location" element={<PetItem />} />
+        <Route
+          path="/"
+          // NOTE: Adding 'useContext' here as per project's requirement:
+          // Taken from this example:
+          // https://www.w3schools.com/react/react_usecontext.asp
+          element={
+            <About user={user} />
+            // <About />
+          }
+        />
+        <Route
+          path="/pet_stores"
+          element={
+            <PetStore
+              stores={stores}
+              onFetchStores={handleFetchStores}
+              onChooseStore={handleChooseStore}
+              chosenStore={chosenStore}
+              onAddStore={handleAddStore}
+              onEditStore={handleEditStore}
+              onDeleteStore={handleDeleteStore}
+            />
+          }
+        />
+        <Route
+          path="/items"
+          element={
+            <Item
+              stores={stores}
+              onChooseStore={handleChooseStore}
+              chosenStore={chosenStore}
+              onFetchStores={handleFetchStores}
+              onAddItem={handleAddItem}
+              itemOptions={itemOptions}
+              setItemOptions={setItemOptions}
+              itemId={itemId}
+              setItemId={setItemId}
+              onChangeItemInfo={handleChangeItemInfo}
+              onEditItem={handleEditItem}
+              onDeleteItem={handleDeleteItem}
+            />
+          }
+        />
+        <Route
+          path="/location"
+          element={
+            <Location
+              stores={stores}
+              onFetchStores={handleFetchStores}
+              onChooseStore={handleChooseStore}
+              chosenStore={chosenStore}
+              onAddLocation={handleAddLocation}
+              onEditLocation={handleEditLocation}
+              onDeleteLocation={handleDeleteLocation}
+              location={location}
+              locationId={locationId}
+            />
+          }
+        />
+        <Route
+          path="/overview"
+          element={
+            <PetStoreOverview
+              stores={stores}
+              onFetchSummaryStores={handleFetchSummaryStores}
+            />
+          }
+        />
       </Routes>
-    </>
+    </div>
   );
 }
+const Logo = styled.h1`
+  font-family: "Permanent Marker", regular;
+  font-size: 2rem;
+  color: Yellow;
+  margin: -1;
+  line-height: 1;
+  -webkit-text-stroke: 2px black;
 
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+`;
 export default App;

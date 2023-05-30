@@ -14,13 +14,7 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import PetsIcon from "@mui/icons-material/Pets";
 
-const pages = [
-  "About",
-  "Pet Store",
-  "Item Inventory",
-  "Location",
-  "Store Overview",
-];
+const pages = ["about", "pet_stores", "items", "Location", "Overview"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function ResponsiveAppBar() {
