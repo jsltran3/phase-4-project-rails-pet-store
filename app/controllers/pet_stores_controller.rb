@@ -46,6 +46,12 @@ class PetStoresController < ApplicationController
             render json: { error: "Bad request, cannot be deleted" }, status: 400
         end
     end
-
+    private 
+    
+    def store_params
+        # NOTE:
+        # Attempt to figure out how to incorporate 'location'
+        params.permit(:name, :location)
+    end
 
 end
