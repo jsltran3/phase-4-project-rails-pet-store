@@ -1,11 +1,30 @@
 import React from "react";
 
+function ChoosePetStoreDropDown({ stores, onChoosestore }) {
+  let storeOptionsArray = stores.map((store) => {
+    return (
+      <option key={store.id} value={store.name}>
+        {store.name}
+      </option>
+    );
+  });
 
-function ChoosePetStoreDropDown() {
   return (
-    <div>
-
-    </div>
+    <>
+      <h2>Choose store: </h2>
+      <form>
+        <label htmlFor="choose_store">Choose a store:</label>
+        <br />
+        <select name="choose_store" id="choose_store" onChange={onChoosestore}>
+          <option disabled selected value>
+            {" "}
+            -- Select a store --{" "}
+          </option>
+          {storeOptionsArray}
+        </select>
+        <br />
+      </form>
+    </>
   );
 }
 
