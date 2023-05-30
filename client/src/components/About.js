@@ -3,7 +3,7 @@ import React from "react";
 function About() {
   return (
     <div>
-      <h2 class="bg-blue-500">About Page</h2>
+      <h2>About Page</h2>
       <p>
         This app is a Full Stack web application made with React, Ruby On Rails,
         and PostgresSQL that allows a user to create in-home dog daycare

@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-// import { Button, Error, Input, FormField, Label } from "../styles";
+import { Button, Error, Input, FormField, Label } from "../styles";
+import "./App.css";
+
+// import TextField from '@mui/material/TextField';
+// import Button from "@mui/material";
+// import Box from '@mui/material/Box';
 
 function SignUpForm({ onLogin }) {
   const [username, setUsername] = useState("");

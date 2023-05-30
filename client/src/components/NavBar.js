@@ -16,9 +16,9 @@ import PetsIcon from "@mui/icons-material/Pets";
 
 const pages = [
   "About",
-  "Pet Stores",
+  "Pet Store",
   "Item Inventory",
-  "Locations",
+  "Location",
   "Store Overview",
 ];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];

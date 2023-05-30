@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import AddPetStoreForm from "./AddPetStoreForm";
-import EditPettoreForm from "./EditPetStoreForm";
+import EditPetStoreForm from "./EditPetStoreForm";
 
 function PetStore({
   stores,
@@ -44,10 +44,10 @@ function PetStore({
       <br />
       <button onClick={toggleEditstores}>Edit stores</button>
       <br />
-      {showAdd && <AddStoreForm onAddStore={onAddStore} />}
+      {showAdd && <AddPetStoreForm onAddStore={onAddStore} />}
       {showAdd && showEdit && <hr />}
       {showEdit && (
-        <EditStoreForm
+        <EditPetStoreForm
           onEditStore={onEditStore}
           onDeleteStore={onDeleteStore}
           stores={stores}

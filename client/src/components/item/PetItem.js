@@ -49,7 +49,7 @@ function PetItem({
       <button onClick={toggleEditItems}>Edit Items</button>
       <br />
       {showAdd && (
-        <AddItemForm
+        <AddPetItemForm
           onAddItem={onAddItem}
           stores={stores}
           onChooseStore={onChooseStore}
@@ -58,7 +58,7 @@ function PetItem({
       )}
       {showAdd && showEdit && <hr />}
       {showEdit && (
-        <EditItemForm
+        <EditPetItemForm
           itemOptions={itemOptions}
           setItemOptions={setItemOptions}
           itemId={itemId}
