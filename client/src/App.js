@@ -29,12 +29,20 @@ import AdbIcon from "@mui/icons-material/Adb";
 
 function App() {
   const [user, setUser] = useState(null);
+  const [stores, setStores] = useState([]);
+  const [chosenStore, setChosenStore] = useState({});
+  const [storeIndex, setStoreIndex] = useState("");
+  const [itemOptions, setItemOptions] = useState([]);
+  const [itemId, setItemId] = useState("");
+  const [itemIndex, setItemIndex] = useState("");
+  const [location, setLocation] = useState([]);
+  const [locationId, setLocationId] = useState("");
+  const UserContext = createContext();
 
   return (
     <>
       <NavBar />
-      <h1 className="bg-blue-500">Hello world!</h1>
-      bg-blue-500
+
       <Routes>
         <Route path="/about" element={<About />} />
         <Route path="/petstores" element={<PetStore />} />
