@@ -2,17 +2,19 @@ import { useState } from "react";
 import LoginForm from "./LoginForm";
 import SignUpForm from "./SignUpForm";
 import Button from "@mui/material/Button";
-import StorefrontIcon from '@mui/icons-material/Storefront';
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
 
 function Login({ onLogin }) {
   const [showLogin, setShowLogin] = useState(true);
 
   return (
-      <Logo>Party Planner</Logo>
+    <div>
+      <h1>Party Planner</h1>
       {showLogin ? (
         <>
           <LoginForm onLogin={onLogin} />
-          <Divider />
+          {/* <Divider /> */}
           <p className="StyledParagraph">
             Don't have an account? &nbsp;
             <Button color="secondary" onClick={() => setShowLogin(false)}>
@@ -23,7 +25,7 @@ function Login({ onLogin }) {
       ) : (
         <>
           <SignUpForm onLogin={onLogin} />
-          <Divider />
+          {/* <Divider /> */}
           <p className="StyledParagraph">
             Already have an account? &nbsp;
             <Button color="secondary" onClick={() => setShowLogin(true)}>
@@ -32,6 +34,7 @@ function Login({ onLogin }) {
           </p>
         </>
       )}
+    </div>
   );
 }
 
