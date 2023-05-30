@@ -4,12 +4,12 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Login from "./components/Login";
 import About from "./components/About";
-import PetStore from "./components/pet_daycare/PetStore";
-import PetItem from "./components/pet/PetItem";
+import PetStore from "./components/store/PetStore";
+import PetItem from "./components/item/PetItem";
 import Geocode from "react-geocode";
 
 import Location from "./components/location/Location";
-import PetStoreOverview from "./components/pet_daycare/PetStoreOverview";
+import PetStoreOverview from "./components/store/PetStoreOverview";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
